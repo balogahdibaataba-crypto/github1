@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="50%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Rounded Canvas -->
+  <rect width="512" height="512" rx="100" fill="url(#bgGrad)" />
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#eab308" stroke-width="4" stroke-dasharray="12 8" opacity="0.4"/>
+  <circle cx="256" cy="256" r="190" fill="none" stroke="#10b981" stroke-width="2" opacity="0.6"/>
+
+  <!-- Compass Star Background / Africa Shield -->
+  <path d="M256 90 L275 220 L390 200 L290 270 L340 390 L256 310 L172 390 L222 270 L122 200 L237 220 Z" fill="url(#goldGrad)" opacity="0.25"/>
+
+  <!-- Official OrientaAfrik Central Monogram Logo -->
+  <g transform="translate(256, 240) scale(1.15)">
+    <!-- Graduation Cap & Future Beacon -->
+    <path d="M0 -75 L95 -30 L0 15 L-95 -30 Z" fill="url(#goldGrad)"/>
+    <path d="M-60 -10 L-60 30 Q0 65 60 30 L60 -10 Q0 25 -60 -10 Z" fill="#ffffff" opacity="0.95"/>
+    <path d="M65 -15 L85 10 L80 40 L70 40 L75 10 Z" fill="#eab308"/>
+    
+    <!-- Laurel Wreath & Wisdom Book -->
+    <path d="M-80 50 Q-40 30 0 45 Q40 30 80 50 L80 80 Q40 60 0 75 Q-40 60 -80 80 Z" fill="#ffffff"/>
+    <path d="M0 45 L0 75" stroke="#047857" stroke-width="3"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="256" y="420" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" letter-spacing="4">ORIENTAAFRIK</text>
+  <text x="256" y="450" text-anchor="middle" fill="#fbbf24" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="16" letter-spacing="2">CABINET DR BALOGAH</text>
+</svg>

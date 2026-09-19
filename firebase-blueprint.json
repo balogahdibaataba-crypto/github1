@@ -1,0 +1,99 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Données du compte personnel et espace de travail",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "currentLevel": { "type": "string" },
+        "targetCareer": { "type": "string" },
+        "city": { "type": "string" },
+        "country": { "type": "string" },
+        "bio": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "fullName", "email"]
+    },
+    "UserDocument": {
+      "title": "UserDocument",
+      "description": "Documents professionnels (CV, lettre, relevés, attestations)",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string" }
+      }
+    },
+    "SiteAnalytics": {
+      "title": "SiteAnalytics",
+      "description": "Statistiques globales de fréquentation et d'utilisation de la plateforme",
+      "type": "object",
+      "properties": {
+        "totalVisits": { "type": "number" },
+        "uniqueVisitors": { "type": "number" },
+        "registeredUsers": { "type": "number" },
+        "reportsGenerated": { "type": "number" },
+        "testsCompleted": { "type": "number" },
+        "lastVisitAt": { "type": "string" },
+        "countries": { "type": "object" },
+        "dailyVisits": { "type": "object" }
+      }
+    },
+    "SiteVisitor": {
+      "title": "SiteVisitor",
+      "description": "Registre des visiteurs uniques et de leur activité",
+      "type": "object",
+      "properties": {
+        "visitorId": { "type": "string" },
+        "firstSeenAt": { "type": "string" },
+        "lastSeenAt": { "type": "string" },
+        "visitCount": { "type": "number" },
+        "reportsCount": { "type": "number" },
+        "testsCount": { "type": "number" },
+        "country": { "type": "string" },
+        "language": { "type": "string" },
+        "userAgent": { "type": "string" }
+      }
+    },
+    "AnalyticsEvent": {
+      "title": "AnalyticsEvent",
+      "description": "Journal d'événements et d'interactions clés",
+      "type": "object",
+      "properties": {
+        "eventType": { "type": "string" },
+        "visitorId": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "path": { "type": "string" },
+        "metadata": { "type": "object" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Profil de travail utilisateur"
+    },
+    "/users/{userId}/documents/{docId}": {
+      "schema": "UserDocument",
+      "description": "Documents de travail de l'utilisateur"
+    },
+    "/analytics_stats/{statId}": {
+      "schema": "SiteAnalytics",
+      "description": "Compteurs et agrégats statistiques d'audience"
+    },
+    "/site_visitors/{visitorId}": {
+      "schema": "SiteVisitor",
+      "description": "Enregistrement des visiteurs uniques"
+    },
+    "/analytics_events/{eventId}": {
+      "schema": "AnalyticsEvent",
+      "description": "Flux d'événements et d'orientations enregistrés"
+    }
+  }
+}

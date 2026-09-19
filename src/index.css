@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm;
+  }
+
+  html, body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100% !important;
+    overflow: visible !important;
+    font-family: Arial, Helvetica, sans-serif, system-ui !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide non-printable UI elements */
+  header:not(.print-page-header),
+  nav,
+  footer:not(.print-page-footer),
+  .no-print,
+  .print\:hidden,
+  button:not(.print-include) {
+    display: none !important;
+  }
+
+  /* Reset fixed modal backdrops and scrolling height limits in print mode */
+  .fixed,
+  .absolute,
+  [class*="fixed"],
+  [class*="max-h-"],
+  [class*="overflow-"] {
+    position: static !important;
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Ensure text colors and backgrounds render with exact colors */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Show and format all printable document containers */
+  #printable-report-document,
+  #export-profile-pdf-document,
+  .print-container,
+  .printable-area,
+  .modal-print-content {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    overflow: visible !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  #printable-report-document *,
+  #export-profile-pdf-document *,
+  .print-container *,
+  .printable-area *,
+  .modal-print-content * {
+    visibility: visible !important;
+  }
+
+  /* Professional repeating page header for print */
+  .print-page-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 9mm !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 2mm !important;
+    border-bottom: 1.5px solid #1e3a8a !important;
+    background-color: #ffffff !important;
+    font-size: 8pt !important;
+    font-weight: 800 !important;
+    color: #1e293b !important;
+    z-index: 9999 !important;
+  }
+
+  /* Professional repeating page footer for print */
+  .print-page-footer {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 8mm !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 2mm !important;
+    border-top: 1.5px solid #1e3a8a !important;
+    background-color: #ffffff !important;
+    font-size: 7.5pt !important;
+    font-weight: 700 !important;
+    color: #334155 !important;
+    z-index: 9999 !important;
+  }
+
+  /* Page break optimization rules */
+  .no-break,
+  .avoid-break,
+  table,
+  tr,
+  img,
+  svg,
+  canvas,
+  blockquote,
+  .signature-block {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .page-break-before {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  .page-break-after {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  /* Strict Distinct A4 Page Flow for Official Report */
+  .official-report-page {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    min-height: 280mm !important;
+    max-height: 287mm !important;
+    height: auto !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    background: #ffffff !important;
+  }
+
+  .official-report-page:last-of-type,
+  .official-report-page:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  .print-page-divider,
+  .screen-only-page-indicator {
+    display: none !important;
+  }
+
+  /* Printable Watermark Enforcement */
+  .official-report-page::before,
+  #printable-report-document::before,
+  .printable-area::before,
+  .report-preview-sheet::before {
+    content: "Certifié OrientaAfrik" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) rotate(-32deg) !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 34pt !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    color: rgba(5, 150, 105, 0.09) !important;
+    border: 3pt dashed rgba(5, 150, 105, 0.12) !important;
+    padding: 12pt 26pt !important;
+    border-radius: 10pt !important;
+    white-space: nowrap !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+/* ========================================================================= */
+/* CERTIFIED WATERMARK (FILIGRANE SEMI-TRANSPARENT "Certifié OrientaAfrik")   */
+/* ========================================================================= */
+.official-report-page,
+#printable-report-document,
+.printable-area,
+.report-preview-sheet {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.official-report-page::before,
+#printable-report-document::before,
+.printable-area::before,
+.report-preview-sheet::before {
+  content: "Certifié OrientaAfrik";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-32deg);
+  transform-origin: center center;
+  font-family: Arial, Helvetica, "Segoe UI", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(5, 150, 105, 0.08);
+  border: 4px dashed rgba(5, 150, 105, 0.1);
+  padding: 1rem 2.8rem;
+  border-radius: 1.25rem;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+.official-report-page > *,
+#printable-report-document > *,
+.printable-area > *,
+.report-preview-sheet > * {
+  position: relative;
+  z-index: 1;
+}
+
+

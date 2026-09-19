@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection: public read for usage observatory & profile count, authenticated write for owner
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+      
+      // User private documents & working files: strictly protected
+      match /{allSubcollections=**} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    // Public catalogs and announcements
+    match /public_institutions/{docId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Public analytics counters and aggregate statistics
+    match /analytics_stats/{docId} {
+      allow read: if true;
+      allow create, update: if true;
+    }
+
+    // Site visitors registration & counts
+    match /site_visitors/{visitorId} {
+      allow read: if true;
+      allow create, update: if true;
+    }
+
+    // Analytics event logs
+    match /analytics_events/{eventId} {
+      allow read: if true;
+      allow create: if true;
+    }
+  }
+}

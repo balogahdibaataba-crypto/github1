@@ -1,0 +1,55 @@
+{
+  "name": "OrientaAfrik - Orientation Scolaire, Universitaire & Carrières Dr BALOGAH",
+  "short_name": "OrientaAfrik",
+  "description": "Plateforme officielle panafricaine d'orientation, 2000 métiers porteurs, tests psychométriques et espace de travail personnel du Cabinet Dr BALOGAH Dibaataba.",
+  "start_url": "/",
+  "id": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#064e3b",
+  "theme_color": "#059669",
+  "lang": "fr",
+  "dir": "ltr",
+  "categories": ["education", "productivity", "business"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mon Espace de Travail",
+      "short_name": "Mon Espace",
+      "description": "Accéder à mon compte personnel et mes documents de travail",
+      "url": "/?tab=user-workspace",
+      "icons": [{ "src": "/icon.svg", "sizes": "192x192 512x512" }]
+    },
+    {
+      "name": "2000 Métiers Porteurs",
+      "short_name": "2000 Métiers",
+      "description": "Explorer le grand répertoire des métiers",
+      "url": "/?tab=careers",
+      "icons": [{ "src": "/icon.svg", "sizes": "192x192 512x512" }]
+    },
+    {
+      "name": "Tests Psychométriques RIASEC",
+      "short_name": "Tests RIASEC",
+      "description": "Passer les tests psychotechniques",
+      "url": "/?tab=tests",
+      "icons": [{ "src": "/icon.svg", "sizes": "192x192 512x512" }]
+    },
+    {
+      "name": "Calculateur de Moyennes",
+      "short_name": "Calculateur",
+      "description": "Calculer l'éligibilité aux universités et grandes écoles",
+      "url": "/?tab=calculator",
+      "icons": [{ "src": "/icon.svg", "sizes": "192x192 512x512" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

@@ -1,0 +1,6 @@
+{
+  "name": "OrientaAfrik - Orientation Scolaire, Professionnelle et Certification",
+  "description": "Plateforme d'information, orientation scolaire, professionnelle et certification VAE, 1000 métiers porteurs, tests psychométriques, examens à 3 niveaux et annuaire des universités.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
